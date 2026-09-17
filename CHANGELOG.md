@@ -1,3 +1,9 @@
+## 1.2.0
+
+### 🚀 Features
+
+- accept a character string in 'CodePointScalar.of' ([47199c0](https://github.com/fundamentry/scalar/commit/47199c0))
+
 ## 1.1.1
 
 ### 🩹 Fixes
