@@ -3,7 +3,7 @@ import { Scalar } from './Scalar.js';
 export class NumberScalar extends Scalar<number> {
   protected override readonly kind = 'number';
 
-  static of(value: number): NumberScalar {
+  static of(this: void, value: number): NumberScalar {
     if (!Number.isFinite(value))
       throw new RangeError(`Invalid number value: ${String(value)}`);
 

@@ -9,7 +9,7 @@ const isSurrogate = (value: number): boolean =>
 export class CodePointScalar extends Scalar<number> {
   protected override readonly kind = 'codePoint';
 
-  static of(value: number): CodePointScalar {
+  static of(this: void, value: number): CodePointScalar {
     if (!isCodePointRange(value) || isSurrogate(value))
       throw new RangeError(`Invalid code point value: ${String(value)}`);
 

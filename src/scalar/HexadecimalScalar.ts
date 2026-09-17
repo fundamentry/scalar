@@ -3,7 +3,7 @@ import { Scalar } from './Scalar.js';
 export class HexadecimalScalar extends Scalar<number> {
   protected override readonly kind = 'hexadecimal';
 
-  static of(value: number): HexadecimalScalar {
+  static of(this: void, value: number): HexadecimalScalar {
     if (
       !Number.isInteger(value) ||
       value < 0 ||
