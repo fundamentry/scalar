@@ -24,5 +24,3 @@ export class CodePointScalar extends Scalar<number> {
     return String.fromCodePoint(this.value());
   }
 }
-
-export const codePoint = CodePointScalar.of;

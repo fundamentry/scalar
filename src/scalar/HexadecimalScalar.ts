@@ -22,5 +22,3 @@ export class HexadecimalScalar extends Scalar<number> {
     return `0x${this.value().toString(16)}`;
   }
 }
-
-export const hexadecimal = HexadecimalScalar.of;
