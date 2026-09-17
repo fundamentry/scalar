@@ -18,3 +18,5 @@ export class NumberScalar extends Scalar<number> {
     return String(this.value());
   }
 }
+
+export const number = NumberScalar.of;
