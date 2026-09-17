@@ -8,14 +8,39 @@ const VALID_VALUES = [0, 0x41, 0x10ffff];
 
 describe('CodePointScalar', () => {
   describe('of', () => {
-    it.each(INVALID_VALUES)("must throw for '%s'", value => {
-      expect(() => CodePointScalar.of(value)).toThrow(
-        new RangeError(`Invalid code point value: ${String(value)}`)
-      );
+    describe('given a number', () => {
+      it.each(INVALID_VALUES)("must throw for '%s'", value => {
+        expect(() => CodePointScalar.of(value)).toThrow(
+          new RangeError(`Invalid code point value: ${String(value)}`)
+        );
+      });
+
+      it.each(VALID_VALUES)("must accept '%s'", value => {
+        expect(CodePointScalar.of(value).value()).toBe(value);
+      });
     });
 
-    it.each(VALID_VALUES)("must accept '%s'", value => {
-      expect(CodePointScalar.of(value).value()).toBe(value);
+    describe('given a character', () => {
+      it.each(['', 'ab', 'é', '👨‍👩‍👧‍👦'])("must throw for '%s'", character => {
+        expect(() => CodePointScalar.of(character)).toThrow(
+          new RangeError(
+            `Invalid character value: ${JSON.stringify(character)}`
+          )
+        );
+      });
+
+      it('must throw for a lone surrogate', () => {
+        expect(() => CodePointScalar.of('\ud800')).toThrow(
+          new RangeError(`Invalid code point value: ${String(0xd800)}`)
+        );
+      });
+
+      it.each([
+        ['A', 0x41],
+        ['😀', 0x1f600],
+      ])("must accept '%s'", (character, expected) => {
+        expect(CodePointScalar.of(character).value()).toBe(expected);
+      });
     });
   });
 

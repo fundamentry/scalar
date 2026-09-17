@@ -56,6 +56,24 @@
     },
     {
       "files": [
+        "src/scalar/CodePointScalar.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-misused-spread": [
+          "error",
+          {
+            "allow": [
+              {
+                "from": "lib",
+                "name": "string"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
         "src/**/*.test.ts",
         "vitest.config.ts"
       ],
