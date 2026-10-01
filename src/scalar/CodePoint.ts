@@ -17,24 +17,24 @@ const codePointFromCharacter = (character: string): number => {
   return codePoint;
 };
 
-export class CodePointScalar extends Scalar<number> {
+export class CodePoint extends Scalar<number> {
   protected override readonly kind = 'codePoint';
 
-  static of(this: void, value: number): CodePointScalar;
+  static of(this: void, value: number): CodePoint;
 
-  static of(this: void, character: string): CodePointScalar;
+  static of(this: void, character: string): CodePoint;
 
-  static of(this: void, value: number | string): CodePointScalar {
+  static of(this: void, value: number | string): CodePoint {
     const codePoint =
       typeof value === 'string' ? codePointFromCharacter(value) : value;
 
     if (!isCodePointRange(codePoint) || isSurrogate(codePoint))
       throw new RangeError(`Invalid code point value: ${String(codePoint)}`);
 
-    return new CodePointScalar(codePoint);
+    return new CodePoint(codePoint);
   }
 
-  override compareTo(other: CodePointScalar): number {
+  override compareTo(other: CodePoint): number {
     return this.value() - other.value();
   }
 

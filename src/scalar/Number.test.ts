@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { NumberScalar } from './NumberScalar.js';
+import { Number } from './Number.js';
 
 const INVALID_VALUES = [NaN, Infinity, -Infinity];
 
-describe('NumberScalar', () => {
+describe('Number', () => {
   describe('of', () => {
     it.each(INVALID_VALUES)("must throw for '%s'", value => {
-      expect(() => NumberScalar.of(value)).toThrow(
+      expect(() => Number.of(value)).toThrow(
         new RangeError(`Invalid number value: ${String(value)}`)
       );
     });
@@ -15,7 +15,7 @@ describe('NumberScalar', () => {
 
   describe('value', () => {
     it('must return the wrapped number', () => {
-      expect(NumberScalar.of(5).value()).toBe(5);
+      expect(Number.of(5).value()).toBe(5);
     });
   });
 
@@ -25,7 +25,7 @@ describe('NumberScalar', () => {
       [0, 4, 4],
       [1, 4, 3],
     ])("must return '%i' for compareTo(%i, %i)", (expected, a, b) => {
-      expect(NumberScalar.of(a).compareTo(NumberScalar.of(b))).toBe(expected);
+      expect(Number.of(a).compareTo(Number.of(b))).toBe(expected);
     });
   });
 
@@ -34,7 +34,7 @@ describe('NumberScalar', () => {
       [42, '42'],
       [-7, '-7'],
     ])("must stringify %i as '%s'", (value, expected) => {
-      expect(NumberScalar.of(value).toString()).toBe(expected);
+      expect(Number.of(value).toString()).toBe(expected);
     });
   });
 });

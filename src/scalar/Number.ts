@@ -1,16 +1,16 @@
 import { Scalar } from './Scalar.js';
 
-export class NumberScalar extends Scalar<number> {
+export class Number extends Scalar<number> {
   protected override readonly kind = 'number';
 
-  static of(this: void, value: number): NumberScalar {
-    if (!Number.isFinite(value))
+  static of(this: void, value: number): Number {
+    if (!globalThis.Number.isFinite(value))
       throw new RangeError(`Invalid number value: ${String(value)}`);
 
-    return new NumberScalar(value);
+    return new Number(value);
   }
 
-  override compareTo(other: NumberScalar): number {
+  override compareTo(other: Number): number {
     return this.value() - other.value();
   }
 

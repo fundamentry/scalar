@@ -58,7 +58,7 @@
     },
     {
       "files": [
-        "src/scalar/CodePointScalar.ts"
+        "src/scalar/CodePoint.ts"
       ],
       "rules": {
         "@typescript-eslint/no-misused-spread": [
