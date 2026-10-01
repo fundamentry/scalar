@@ -1,3 +1,18 @@
+# 2.0.0
+
+### 🚀 Features
+
+- ⚠️  export scalar classes from the package root ([7170525](https://github.com/fundamentry/scalar/commit/7170525))
+
+### 🩹 Fixes
+
+- exclude test files from the published package ([edc73ef](https://github.com/fundamentry/scalar/commit/edc73ef))
+- resolve internal imports to compiled declarations for consumers ([71a3933](https://github.com/fundamentry/scalar/commit/71a3933))
+
+### ⚠️  Breaking Changes
+
+- export scalar classes from the package root  ([7170525](https://github.com/fundamentry/scalar/commit/7170525))
+
 ## 1.2.0
 
 ### 🚀 Features
