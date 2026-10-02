@@ -17,7 +17,7 @@ const codePointFromCharacter = (character: string): number => {
   return codePoint;
 };
 
-export class CodePoint extends Scalar<number> {
+export class CodePoint extends Scalar<number, CodePoint> {
   protected override readonly kind = 'codePoint';
 
   static of(this: void, value: number): CodePoint;

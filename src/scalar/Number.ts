@@ -1,6 +1,6 @@
 import { Scalar } from './Scalar.js';
 
-export class Number extends Scalar<number> {
+export class Number extends Scalar<number, Number> {
   protected override readonly kind = 'number';
 
   static of(this: void, value: number): Number {

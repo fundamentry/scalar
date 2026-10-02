@@ -1,6 +1,6 @@
 import { Scalar } from './Scalar.js';
 
-export class Hexadecimal extends Scalar<number> {
+export class Hexadecimal extends Scalar<number, Hexadecimal> {
   protected override readonly kind = 'hexadecimal';
 
   static of(this: void, value: number): Hexadecimal {
