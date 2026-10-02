@@ -29,6 +29,15 @@ describe('Number', () => {
     });
   });
 
+  describe('equals', () => {
+    it.each([
+      [true, 4, 4],
+      [false, 3, 4],
+    ])('must return %s for %i.equals(%i)', (expected, a, b) => {
+      expect(Number.of(a).equals(Number.of(b))).toBe(expected);
+    });
+  });
+
   describe('toString', () => {
     it.each([
       [42, '42'],

@@ -35,6 +35,15 @@ describe('Hexadecimal', () => {
     });
   });
 
+  describe('equals', () => {
+    it.each([
+      [true, 2, 2],
+      [false, 1, 2],
+    ])('must return %s for %i.equals(%i)', (expected, a, b) => {
+      expect(Hexadecimal.of(a).equals(Hexadecimal.of(b))).toBe(expected);
+    });
+  });
+
   describe('toString', () => {
     it.each([
       [255, '0xff'],
