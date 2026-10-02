@@ -1,3 +1,9 @@
+# 3.0.0
+
+### 🚀 Features
+
+- implement 'Equatable' trait on 'Scalar' ([8089f31](https://github.com/fundamentry/scalar/commit/8089f31))
+
 # 2.0.0
 
 ### 🚀 Features
