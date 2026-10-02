@@ -1,6 +1,6 @@
-import { Scalar } from './Scalar.js';
+import { NumericScalar } from './NumericScalar.js';
 
-export class Hexadecimal extends Scalar<number, Hexadecimal> {
+export class Hexadecimal extends NumericScalar<Hexadecimal> {
   protected override readonly kind = 'hexadecimal';
 
   static of(this: void, value: number): Hexadecimal {
@@ -12,10 +12,6 @@ export class Hexadecimal extends Scalar<number, Hexadecimal> {
       throw new RangeError(`Invalid hexadecimal value: ${String(value)}`);
 
     return new Hexadecimal(value);
-  }
-
-  override compareTo(other: Hexadecimal): number {
-    return this.value() - other.value();
   }
 
   override toString(): string {

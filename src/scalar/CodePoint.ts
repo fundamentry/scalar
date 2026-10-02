@@ -1,4 +1,4 @@
-import { Scalar } from './Scalar.js';
+import { NumericScalar } from './NumericScalar.js';
 
 const isCodePointRange = (value: number): boolean =>
   Number.isInteger(value) && value >= 0 && value <= 0x10ffff;
@@ -17,7 +17,7 @@ const codePointFromCharacter = (character: string): number => {
   return codePoint;
 };
 
-export class CodePoint extends Scalar<number, CodePoint> {
+export class CodePoint extends NumericScalar<CodePoint> {
   protected override readonly kind = 'codePoint';
 
   static of(this: void, value: number): CodePoint;
@@ -32,10 +32,6 @@ export class CodePoint extends Scalar<number, CodePoint> {
       throw new RangeError(`Invalid code point value: ${String(codePoint)}`);
 
     return new CodePoint(codePoint);
-  }
-
-  override compareTo(other: CodePoint): number {
-    return this.value() - other.value();
   }
 
   override toString(): string {
