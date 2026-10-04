@@ -1,3 +1,13 @@
+## 3.1.0
+
+### 🚀 Features
+
+- add 'Integer' scalar ([234b8c6](https://github.com/fundamentry/scalar/commit/234b8c6))
+
+### 🩹 Fixes
+
+- normalise -0 to 0 in numeric scalars ([a84e47b](https://github.com/fundamentry/scalar/commit/a84e47b))
+
 # 3.0.0
 
 ### 🚀 Features
