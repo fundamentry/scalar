@@ -23,6 +23,10 @@ describe('Hexadecimal', () => {
     it('must return the wrapped integer', () => {
       expect(Hexadecimal.of(255).value()).toBe(255);
     });
+
+    it('must normalise -0 to 0', () => {
+      expect(Hexadecimal.of(-0).value()).toBe(0);
+    });
   });
 
   describe('compareTo', () => {

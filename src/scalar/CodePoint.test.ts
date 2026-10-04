@@ -48,6 +48,10 @@ describe('CodePoint', () => {
     it('must return the wrapped integer', () => {
       expect(CodePoint.of(0x41).value()).toBe(0x41);
     });
+
+    it('must normalise -0 to 0', () => {
+      expect(CodePoint.of(-0).value()).toBe(0);
+    });
   });
 
   describe('compareTo', () => {

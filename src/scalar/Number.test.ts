@@ -17,6 +17,10 @@ describe('Number', () => {
     it('must return the wrapped number', () => {
       expect(Number.of(5).value()).toBe(5);
     });
+
+    it('must normalise -0 to 0', () => {
+      expect(Number.of(-0).value()).toBe(0);
+    });
   });
 
   describe('compareTo', () => {
