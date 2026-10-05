@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
+
+import { Discrete } from '@fundamentry/trait';
 
 import { Integer } from './Integer.js';
 
@@ -103,6 +105,44 @@ describe('Integer', () => {
         new RangeError(
           `Invalid integer value: ${String(Number.MIN_SAFE_INTEGER - 1)}`
         )
+      );
+    });
+  });
+
+  describe('[Discrete.successor]', () => {
+    it('must satisfy the trait', () => {
+      expectTypeOf<Integer>().toExtend<Discrete<Integer>>();
+    });
+
+    it.each([
+      [41, 42],
+      [-1, 0],
+    ])('must step %i to %i', (value, expected) => {
+      expect(Integer.of(value)[Discrete.successor]().value()).toBe(expected);
+    });
+
+    it('must equal increment', () => {
+      const integer = Integer.of(41);
+
+      expect(integer[Discrete.successor]().equals(integer.increment())).toBe(
+        true
+      );
+    });
+  });
+
+  describe('[Discrete.predecessor]', () => {
+    it.each([
+      [43, 42],
+      [0, -1],
+    ])('must step %i to %i', (value, expected) => {
+      expect(Integer.of(value)[Discrete.predecessor]().value()).toBe(expected);
+    });
+
+    it('must equal decrement', () => {
+      const integer = Integer.of(43);
+
+      expect(integer[Discrete.predecessor]().equals(integer.decrement())).toBe(
+        true
       );
     });
   });

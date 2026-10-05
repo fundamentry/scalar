@@ -1,6 +1,11 @@
+import { Discrete } from '@fundamentry/trait';
+
 import { NumericScalar } from './NumericScalar.js';
 
-export class Integer extends NumericScalar<Integer> {
+export class Integer
+  extends NumericScalar<Integer>
+  implements Discrete<Integer>
+{
   protected override readonly kind = 'integer';
 
   static of(this: void, value: number): Integer {
@@ -16,6 +21,14 @@ export class Integer extends NumericScalar<Integer> {
 
   decrement(): Integer {
     return Integer.of(this.value() - 1);
+  }
+
+  [Discrete.successor](): Integer {
+    return this.increment();
+  }
+
+  [Discrete.predecessor](): Integer {
+    return this.decrement();
   }
 
   override toString(): string {
