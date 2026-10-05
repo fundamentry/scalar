@@ -1,3 +1,10 @@
+## 4.1.0
+
+### 🚀 Features
+
+- add 'decrement' to 'Integer' ([2614e33](https://github.com/fundamentry/scalar/commit/2614e33))
+- implement 'Discrete' on 'Integer' ([ba88b28](https://github.com/fundamentry/scalar/commit/ba88b28))
+
 # 4.0.0
 
 ### 🚀 Features
