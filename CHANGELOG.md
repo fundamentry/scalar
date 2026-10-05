@@ -1,3 +1,13 @@
+# 4.0.0
+
+### 🚀 Features
+
+- ⚠️  migrate to '@fundamentry/trait' 3.0.0 ([b4f14b5](https://github.com/fundamentry/scalar/commit/b4f14b5))
+
+### ⚠️  Breaking Changes
+
+- migrate to '@fundamentry/trait' 3.0.0  ([b4f14b5](https://github.com/fundamentry/scalar/commit/b4f14b5))
+
 ## 3.1.0
 
 ### 🚀 Features
