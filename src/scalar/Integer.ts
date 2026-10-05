@@ -14,6 +14,10 @@ export class Integer extends NumericScalar<Integer> {
     return Integer.of(this.value() + 1);
   }
 
+  decrement(): Integer {
+    return Integer.of(this.value() - 1);
+  }
+
   override toString(): string {
     return String(this.value());
   }

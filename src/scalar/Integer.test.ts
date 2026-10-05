@@ -81,6 +81,32 @@ describe('Integer', () => {
     });
   });
 
+  describe('decrement', () => {
+    it.each([
+      [1, 0],
+      [0, -1],
+      [43, 42],
+    ])('must decrement %i to %i', (value, expected) => {
+      expect(Integer.of(value).decrement().value()).toBe(expected);
+    });
+
+    it('must not mutate the original integer', () => {
+      const integer = Integer.of(1);
+
+      integer.decrement();
+
+      expect(integer.value()).toBe(1);
+    });
+
+    it('must throw past the minimum safe integer', () => {
+      expect(() => Integer.of(Number.MIN_SAFE_INTEGER).decrement()).toThrow(
+        new RangeError(
+          `Invalid integer value: ${String(Number.MIN_SAFE_INTEGER - 1)}`
+        )
+      );
+    });
+  });
+
   describe('toString', () => {
     it.each([
       [42, '42'],
