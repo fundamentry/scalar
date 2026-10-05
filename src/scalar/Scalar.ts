@@ -1,8 +1,4 @@
-import {
-  type Comparable,
-  type Equatable,
-  type Stringable,
-} from '@fundamentry/trait';
+import { Comparable, Equatable, type Stringable } from '@fundamentry/trait';
 
 export abstract class Scalar<V, S extends Scalar<V, S>>
   implements Comparable<S>, Equatable<S>, Stringable
@@ -26,4 +22,16 @@ export abstract class Scalar<V, S extends Scalar<V, S>>
   abstract compareTo(other: S): number;
 
   abstract toString(): string;
+
+  [Comparable.symbol](other: S): number {
+    return this.compareTo(other);
+  }
+
+  [Equatable.symbol](other: S): boolean {
+    return this.equals(other);
+  }
+
+  [Symbol.toPrimitive](): string {
+    return this.toString();
+  }
 }
